@@ -4,7 +4,7 @@ import re
 from flask import Flask, request, jsonify, render_template_string
 from flask_cors import CORS
 import requests
-from api.config import *  # Ensure you have the OPENROUTER_API_KEY and other configurations
+from api.config import *
 
 # Define the UltraSimpleRAG class first
 class UltraSimpleRAG:
@@ -176,7 +176,6 @@ rag_system = UltraSimpleRAG()
 app = Flask(__name__)
 # Allow CORS for all origins for testing (in production, restrict this)
 CORS(app, resources={r"/api/*": {"origins": "*"}})  # Allow all origins for API routes
-CORS(app)
 
 # Global variables (you can keep them)
 chat_history = []
@@ -197,8 +196,12 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     return response
 
+# Query function to query the external API (here OpenRouter API is used)
 def query_openrouter_api(prompt, context=""):
     """Query OpenRouter API with context"""
+    OPENROUTER_API_KEY = "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"
+    
+    # Check if the API key is provided correctly
     if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "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":
         return "Please configure your OpenRouter API key in config.py"
     
@@ -252,6 +255,51 @@ Please provide a helpful answer:"""
         return f"Error: {e}"
 
 # Flask routes
+@app.route("/")
+def home():
+    """Professional chat interface"""
+    html = """<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OwlVest Knowledge Assistant</title>
+        <style>
+        /* Styles for the page, add your CSS here */
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>OwlVest Knowledge Assistant</h1>
+            </div>
+            <div class="chat-container" id="chatContainer">
+                <!-- Chat messages will go here -->
+            </div>
+            <div class="input-section">
+                <input type="text" id="userInput" placeholder="Ask a question" />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: userInput })
+            });
+
+            const data = await response.json();
+            console.log(data.response);
+        }
+    </script>
+    </html>"""
+    return html
+
 @app.route("/chat", methods=["POST"])
 def chat():
     """Chat endpoint with RAG"""
@@ -296,7 +344,7 @@ def health():
     return jsonify({
         "status": "healthy",
         "rag_system": "ready" if len(rag_system.document_chunks) > 0 else "initializing",
-        "api_configured": OPENROUTER_API_KEY != "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"
+        "api_configured": OPENROUTER_API_KEY != "your_openrouter_api_key_here"
     })
 
 if __name__ == "__main__":

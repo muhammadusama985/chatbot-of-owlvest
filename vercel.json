@@ -1,14 +1,33 @@
 {
-  "rewrites": [
-    { "source": "/",        "destination": "/api" },
-    { "source": "/chat",    "destination": "/api/chat" },
-    { "source": "/status",  "destination": "/api/status" },
-    { "source": "/health",  "destination": "/api/health" }
-  ],
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.12",
-      "includeFiles": "api/data/**"
+  "builds": [
+    {
+      "src": "index.py",
+      "use": "@vercel/python"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/index.py"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
 }
