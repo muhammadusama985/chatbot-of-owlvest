@@ -1,7 +1,7 @@
 import os
 import json
 import re
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 from api.config import *
@@ -36,7 +36,7 @@ class UltraSimpleRAG:
                 print(f"Error loading {file_name}: {e}")
 
         return all_text
-    
+
     def split_text_into_chunks(self, text, chunk_size=1000, overlap=200):
         """Split text into overlapping chunks"""
         print("Splitting text into chunks...")
@@ -84,7 +84,7 @@ class UltraSimpleRAG:
 
         print(f"Created {len(chunks)} chunks")
         return chunks, metadata
-    
+
     def simple_text_similarity(self, query, text):
         """Calculate simple text similarity using word overlap"""
         query_words = set(re.findall(r'\b\w+\b', query.lower()))
@@ -101,7 +101,7 @@ class UltraSimpleRAG:
             return 0.0
 
         return intersection / union
-    
+
     def search_similar_chunks(self, query, k=3):
         """Search for similar chunks using simple text similarity"""
         if not self.document_chunks:
@@ -137,7 +137,7 @@ class UltraSimpleRAG:
         except Exception as e:
             print(f"Error searching chunks: {e}")
             return []
-    
+
     def initialize(self):
         """Initialize the complete RAG system"""
         print("Initializing OwlVest Ultra-Simple RAG system...")
@@ -152,7 +152,7 @@ class UltraSimpleRAG:
 
         print("Ultra-Simple RAG system initialized successfully!")
         return True
-    
+
     def get_relevant_context(self, query, k=None):
         """Get relevant context for a query"""
         k = k or SIMILARITY_SEARCH_K
@@ -196,12 +196,8 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     return response
 
-# Query function to query the external API (here OpenRouter API is used)
 def query_openrouter_api(prompt, context=""):
     """Query OpenRouter API with context"""
-    OPENROUTER_API_KEY = "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"
-    
-    # Check if the API key is provided correctly
     if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "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":
         return "Please configure your OpenRouter API key in config.py"
     
@@ -254,75 +250,28 @@ Please provide a helpful answer:"""
     except Exception as e:
         return f"Error: {e}"
 
+
 # Flask routes
-@app.route("/")
-def home():
-    """Professional chat interface"""
-    html = """<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OwlVest Knowledge Assistant</title>
-        <style>
-        /* Styles for the page, add your CSS here */
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>OwlVest Knowledge Assistant</h1>
-            </div>
-            <div class="chat-container" id="chatContainer">
-                <!-- Chat messages will go here -->
-            </div>
-            <div class="input-section">
-                <input type="text" id="userInput" placeholder="Ask a question" />
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </body>
-    <script>
-        async function sendMessage() {
-            const userInput = document.getElementById('userInput').value;
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ query: userInput })
-            });
-
-            const data = await response.json();
-            console.log(data.response);
-        }
-    </script>
-    </html>"""
-    return html
-
-@app.route("/chat", methods=["POST"])
+@app.route("/api/chat", methods=["POST"])
 def chat():
-    """Chat endpoint with RAG"""
+    """Chat endpoint to handle queries"""
     try:
         user_query = request.json.get("query")
         if not user_query:
             return jsonify({"response": "No query provided."})
-        
-        # Get relevant context from RAG system
+
+        # Process the query and generate a response (this is just a placeholder)
         context = rag_system.get_relevant_context(user_query)
-        
-        # Query OpenRouter API with context
         response = query_openrouter_api(user_query, context)
-        
+
         # Store in chat history
         chat_history.append({
             "user": user_query,
             "bot": response,
             "context_used": context[:200] + "..." if len(context) > 200 else context
         })
-        
+
         return jsonify({"response": response})
-        
     except Exception as e:
         return jsonify({"response": f"Server error: {str(e)}"})
 
