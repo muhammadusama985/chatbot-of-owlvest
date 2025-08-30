@@ -174,6 +174,8 @@ rag_system = UltraSimpleRAG()
 
 # Flask setup
 app = Flask(__name__)
+# Allow CORS for all origins for testing (in production, restrict this)
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # Allow all origins for API routes
 CORS(app)
 
 # Global variables (you can keep them)
@@ -186,6 +188,14 @@ try:
     rag_system.initialize()
 except Exception as e:
     print(f" RAG init warning: {e}")
+
+@app.after_request
+def after_request(response):
+    """Add CORS headers for Vercel deployment"""
+    response.headers.add('Access-Control-Allow-Origin', '*')  # Allow all origins (or restrict as needed)
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    return response
 
 # Flask routes
 @app.route("/")
