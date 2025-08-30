@@ -1,0 +1,53 @@
+OWLVEST
+Vision
+What Are We Building
+Co-Founders
+RMS
+Whitepaper
+Contact
+Connect with Owlvest
+O W L V E S T
+Unlocking global startup investing through decentralized finance
+Vision
+At Owlvest, we’re building a decentralized fintech platform that unlocks global access to early-stage, revenue-generating startups. Our mission is to democratize startup investing by merging blockchain, compliance, and real-time transparency, removing traditional gatekeepers and enabling scalable, trusted, and tokenized access to high-potential opportunities across sectors and borders.
+What Are We Building
+On-Chain Insights
+Track startup performance, funding progress, and milestones with full transparency.
+Verified Access
+Invest securely in vetted startups and real-world assets through tokenized ownership.
+Smart Execution
+Automated deals, treasury visibility, and secure fund control via smart contracts.
+Tokenized Equity
+Own NFT/SFT-based equity with optional trading and built-in liquidity access.
+Community Governance
+Shape the platform’s future through decentralized, protocol-level decision-making
+Co-Founders
+Talha Aftab
+CEO & Co-founder
+Business Administration student with deep experience in legal-tech, token strategy, and product architecture. Formerly with Barings Law (UK) and Sensible International , Talha built Owlvest’s token model and platform ideation.
+Bilal Aftab
+COO & Co-founder
+MSc International Business (University of Edinburgh), a recognized trader on Binance and NYSE investor through Robinhood. Bilal oversees business development, partnerships, and fiscal expansion.
+Token Risk Mitigation Strategy (RMS)
+Lockups
+Extended lockups for team and partners
+Audits
+Smart contract audits and compliance gating
+Tracking
+Real-time treasury tracking via dashboards
+Multisig
+Multisig wallet operations with DAO pathways
+Protection
+Risk scoring and investor protection models
+Whitepaper
+Explore our whitepaper to dive into Owlvest’s technical architecture, tokenomics, and long-term vision
+Read our full Whitepaper
+Coming Soon
+The future of decentralized investment is almost here
+Contact
+Ready to be part of the future of decentralized investing? Connect with our team today.
+hello@owlvest.com
+Terms
+Privacy
+Support
+© 2025 OWLVEST. All rights reserved.

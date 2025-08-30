@@ -1,0 +1,491 @@
+
+
+--- Content from clean_whitepaper.txt ---
+🧾 Owlvest Official Whitepaper
+Table of Contents
+Executive Summary
+Vision
+What We’re Building
+Founders & Team
+Go-To-Market Strategy (GTM)
+Token Risk Mitigation Strategy (RMS)
+Strategic Platform Rollout
+Tokenomics
+Governance
+Staking Tiers
+Revenue Model
+Legal & Compliance Framework
+Due Diligence
+Liquidity & Exit Strategy
+Strategic Partnerships & Ecosystem Highlights
+Connect With Owlvest
+Legal Disclaimer
+1. Executive Summary
+Owlvest is a decentralized fintech platform unlocking global access to early-stage, revenue-generating startups. By combining blockchain, compliance, and real-time transparency, Owlvest enables a next-generation investing experience -tokenized, trustworthy, and accessible to anyone.
+2. Vision
+To democratize startup investing by fusing modern finance and blockchain - removing gatekeepers and enabling scalable access to curated, high-potential opportunities across sectors and borders.
+3. What We’re Building
+A secure platform for investing in verified startups and RWAs using tokenized ownership
+On-chain transparency for startup metrics, funding progress, and milestones
+Smart contract–based deal execution, treasury visibility, and fund control
+NFT/SFT equity tokens with optional trading and liquidity access
+Decentralized governance for long-term protocol evolution
+4. Founders & Team
+Owlvest is founded by the Aftab brothers — Talha and Bilal — combining blockchain experience, financial insight, and global strategy.
+Talha Aftab: Business Administration student with deep experience in legal-tech, token strategy, and product architecture. Formerly with Barings Law (UK) and Sensible International , Talha built Owlvest’s token model and platform ideation.
+Bilal Aftab: MSc International Business (University of Edinburgh), a recognized trader on Binance and NYSE investor through Robinhood. Bilal oversees business development, partnerships, and fiscal expansion.
+Together, the Aftab brothers bring:
+Years of experience trading and investing in Web3 from 2019 - Present
+Recognition as Top Value Traders from Binance
+Practical legal and operational background in finance and compliance
+Access to global legal advisors across U.S., U.K., and Pakistan
+5. Go-To-Market Strategy (GTM)
+Beta launch with 5–10 verified startups
+KOL-driven growth with Binance influencers
+Referral and staking rewards for community traction
+NGO and SDG-aligned startup onboarding
+Web3-native launch campaigns via partnerships
+6. Token Risk Mitigation Strategy (RMS)
+Extended lockups for team and partners
+Smart contract audits and compliance gating
+Real-time treasury tracking via dashboards
+Multisig wallet operations with DAO pathways
+Risk scoring and investor protection models
+7. Strategic Platform Rollout
+Owlvest’s phased roadmap will support scalable growth while aligning token value with real-world usage. Key stages include:
+Initial rollout of verified startup deals and staking model
+Community-driven platform governance and NFT utility
+Treasury-backed liquidity pools and smart investor tools
+Long-term evolution toward full-scale token launchpad and equity exchange
+8. Tokenomics
+Token Name: OwlCoin ($OWL)
+Total Supply: 10,000,000,000 (10B)
+Allocation:
+Initial Private Distribution: 10% (1B) @ $0.006
+General Allocation Presale : 15% @ $0.008
+Founders & Team: 15%
+Treasury: 20%
+Staking & Rewards: 10%
+Ecosystem Growth: 20%
+Advisors & Partners: 5%
+NGO Impact Fund: 5%
+Vesting Strategy:
+Category
+Lockup & Release
+Public Tokens
+Linear release post-TGE
+Team & Advisors
+6–48 month vesting
+Rewards & Ecosystem
+Algorithm-based unlocks
+Treasury
+DAO-controlled strategic deployment
+NGO Fund
+Immediate release to verified recipients
+9. Governance
+Owlvest features token-weighted governance with real-world compliance.
+Approve startups and features
+Propose platform upgrades
+Allocate treasury funds
+Vote on community initiatives
+10. Staking Tiers
+Tier
+Stake ($OWL)
+Benefits
+Bronze
+250,000
+Early access, DAO votes
+Silver
+500,000
+Research access, NFT perks
+Gold
+1M+
+Deal priority, proposal rights
+Platinum
+2M+
+Treasury yield share, premium offerings
+11. Revenue Model
+Token tax (1–4%) on DEX trades
+Platform fees on capital raised
+Startup onboarding and verification
+Licensing the platform to third parties
+Premium staking and insights tools
+Token tax is split into:
+40% Treasury
+30% Marketing
+20% Liquidity
+10% Operational fund
+12. Legal & Compliance Framework
+Incorporated in Missouri, U.S.
+Legal advisory across U.S., U.K., and Pakistan
+Mandatory KYC/AML onboarding
+Smart contract governance and legal wrappers
+13. Due Diligence
+Each startup is verified via:
+AI-ML enhanced scoring
+Financial/market audit
+Legal document verification
+Team credibility check
+Community-driven curation
+14. Liquidity & Exit Strategy
+NFT/SFT startup equity resale
+Built-in DEX and OTC module
+Escrow-based milestones and unlocks
+Yield sharing from treasury
+Transparent real-time valuations
+15. Strategic Partnerships & Ecosystem Highlights
+Owlvest is collaborating with:
+Google for Startups (Tech credits, infra)
+Cresco Real Estate (Dubai)
+Imran Rai (Bullish Banter, Binance Square)
+Aylabs (Fintech AI Lab)
+Founders Institute (Global Accelerator)
+Binance Square influencers and KOLs
+Legal partners in U.S., U.K., and South Asia
+Local VCs, private equity firms, and innovation hubs in talks
+🚀 Over 5,000+ startups have shown interest in joining Owlvest — across fintech, SaaS, Web3, AI, and impact sectors.
+16. Connect With Owlvest
+Website: https://owlvestnow.com
+Twitter (X): https://x.com/owlvestnow
+Telegram: https://t.me/owlvestnow
+Discord: https://discord.gg/rYcg8MaDay
+LinkedIn: https://linkedin.com/company/owlvest
+17. Legal Disclaimer ⚖️
+Owlvest is incorporated in the United States:
+117S Lexington Street, Harrisonville, Missouri
+EIN - 30-1438266
+This document is intended for public informational purposes only. It does not constitute legal or investment advice. Owlvest reserves the right to revise, modify, or delay any portion of its roadmap or token design due to regulatory, strategic, or operational requirements.
+All content herein is protected under applicable copyright and IP law.
+© 2025 Owlvest. All rights reserved.
+
+
+--- Content from clean_pic_data.txt ---
+Owlvest: Swipe. Match. Invest.
+early-stage
+startups
+Welcome to Owlvest, where we're revolutionizing startup investing!
+Support transformative startups
+through Owlvest with easy
+We're building the Tinder for Startup Investing -powered by $OwlCoin.
+access and minimal investment.
+Discover how we make Web3 investing simple, accessible, and secure for
+everyone.
+PERSONALIZED
+SIMPLE
+Solving Startup Funding
+and Investor Access
+The Problem Defined
+Owlvest: The Game-
+Changing Solution
+Startups face capital hurdles.
+Retail investors miss prime deals.
+Owlvest simplifies startup
+Existing launchpads are rigid and
+investing to a "swipe." Verified
+noisy. Web3 investing remains
+startups meet investors via a
+intimidating.
+gamified UI/UX.
+Startups: Capital
+Verified Pitches
+Crunches
+Startups create secure
+Struggle with early-stage
+profiles.
+funding.
+->
+Swipe-to-Match
+Investors: Missed
+Investors find ideal
+Opportunities
+opportunities.
+Invest Now
+Lack access to quality deals.
+$OwlCoin Power
+Web3: Inaccessible
+Deals gated by token tiers.
+Chaos
+Community Driven
+Intimidating, centralized,
+scam-prone.
+DAO vets listings, rewards
+contributors.
+Market Momentum & OwlCoin Utility
+Market Timing: Perfect Storm for Growth
+With crypto rebounding, retail capital seeks trusted Web3
+entry points. Hybrid Web2/Web3 investing is now.
+$0.8T
+$4T
+OWLVEST
+VC Market Size
+Crypto Market Cap
+Venture Capital's massive
+Immense digital asset
+scope.
+growth.
+$35B
+$15B+
+$OwlCoin Utility: Fueling the Ecosystem
+Equity Crowdfunding
+Web3 Token Raises
+Deal Access
+Expanding retail investment.
+Explosive 2024 growth.
+$
+Unlock exclusive startup tiers.
+DAO Governance
+Voting rights in the OwlDAO.
+Staking Rewards
+Boost allocations, earn yields.
+Premium Features
+WL access, cross-platform perks.
+Global Traction So Far: Building Momentum
+5,000+ Startups
+2
+7,600+ Investors
+Vetted and on our waitlist.
+Early users pre-registered.
+3
+22+ Global Team
+4
+Strategic Partnerships
+Across Pakistan, India, UK.
+Capiteq, Google, Edversity, and more.
+Tokenomics, Business Model & Roadmap
+Transparent Tokenomics: 10 Billion $OwlCoin
+Our Business Mode . A Tokenized Flywheel
+Ecosystem
+Growth
+DAO Treasury
+($)
+Liquidity
+MILESTONE UNLOCKED
+Team &
+THE FUTURE OF
+Advisors
+Marketing
+WEB3 INVESTING
+Presale
+IS HERE
+Reserve
+Designed for long-term growth and fairness. Engineered for
+resilience, equity, and utility, With A fair, future-ready
+economic model
+OWLvest
+OWLCOIN
+Distribution Breakdown:
+5% - Presale (Tier 1 & 2)
+25% - Ecosystem Growth (Grants, WL, Contributors)
+2-5% Transaction Fees
+15% - Team & Advisors (4-year vesting, 1-year cliff)
+On all $OwlCoin transactions
+10% - Marketing, Community Rewards & Shillers
+5% - Reserve Fund (Emergency + Ops runway)
+Premium Investor Tiers
+40% - DAO Treasury (Controlled by Owlvest community votes)
+Unlock exclusive features.
+Launchpad Services
+For vetted external projects.
+DAO Revenue Sharing
+Through governance model.
+Roadmap: Building the Future
+Q2-Q4 2025
+MVP finalized, private sale opens
+Smart contracts deployed, WL live, token claim ..
+Q1-03 2026
+Full platform launch + investor DApp.
+04 2026
+Launchpad-as-a-Service for accelerators & VCs
+Regional demo days + community campaigns
+2027
+Global hackathon and builder program
+. Partnerships with Saudi VCs and Gulf tech hubs
+. Deal flow pipeline from US and UK Web3 funds
+2028
+5
+Owlvest Labs for startup incubation
+Expand to SME tokenization market
+$OwlCoin listed on DEXs + first CEX partnership
+Fiat on-ramp integrations
+. Compliance modules (EU, GCC, Asia)
+2029
+. Launch of OwlScore: smart investor-founder
+matchmaking
+Al-based founder onboarding & investor profiling
+. DAO-managed regional funds (India DAO, MENA
+2030 - Global Approach
+DAO)
+1M+ investors onboarded
+$OwlCoin listed on Tier-1 CEXs
+50K+ startups launched through Owlvest
+. $1B+ total raise volume through Owlvest
+Full suite of RWA + token investing tools
+Massive influencer & KOL campaign across Web3
+. Dominating early-stage investing in crypto and
+beyond
+Team & Achievements
+Led by Talha Aftab (Founder) and Bilal Aftab (COO), with strategic advisors like Matthew Ridyard (Capiteq) and Mr. Dailen
+McLaughlin (Sensible Group International ). Our 22+ global contributors hail from Pakistan, India, and the UK.
+Google For Startups Partners
+Edversity / Innovate 4.0 Top
+Hult Prize National
+Performer
+Performers
+$
+Founders Institue Global
+Startup Grind / Techstars
+Binance Square Partner
+Partners
+Network
+Owlvest is Partnered With Team
+Bullish Banter - Top 1 Creator Of
+Binance Square
+The Ask: Join Our Journey
+We're raising $300K in private Rounds presale ($0.005-$0.008 per token).
+Seeking Strategic
+Launchpad Partners
+Regional Allies
+Do
+Angels / Investors
+Contact us: owlvestnow@gmail.com | X/Twitter : @OwlvestNow | Instagram : Owlvest.Inc | Linkedin : Talhaaftab/Owlvest
+Waraq.ai
+Al-powered document
+automation
+Automate document workflows
+with Al
+MIIIUAL
+View More
+MyNikah.pk
+Muslim matchmaking
+platform
+Find your perfect match within
+the Muslim community
+NATURAL
+TAQKINE HE*E
+View More
+VibeSolar
+Sustainable energy solutions
+Solar power for homes and
+businesses
+MINIMAL NATURAL
+View More
+Mentora
+Personalized learning
+platform
+Al-driven mentorship for career
+growth
+NATIUAL
+View More
+FlickPay
+Mobile payment gateway
+Seamless and secure mobile
+payments
+MIHILIIVAL NATURAL
+View More
+FarmaX
+Precision agriculture
+technology
+Optimize crop yields with data-
+driven insights
+ALURY
+View More
+CircleCycle
+Circular economy platform with $80K monthly
+revenue helping businesses create sustainable ...
+Responsible Consumption
+Climate Action
+CyberShield
+Cybersecurity SaaS earning $95K monthly
+protecting 500+ businesses with Al-threat ...
+Industry & Innovation
+Partnerships for Goals
+The Future of Startup Investment
+Join the Investment Revolution
+Be among the first to invest in impact-
+driven startups using blockchain
+technology. Democratizing access to
+early-stage equity investments with
+OwlCoin.
+Google for Startups
+OWLVEST SECURES
+$200K+IN FUNDING
+BACKED BY GOOGLE.
+BUILT TO DOMINATE WEB3.
+STATE OF MISSOURI
+HE SECRET
+Y O
+OF STATE
+SEAL OF
+MISSOURI
+Denny Hoskins
+Secretary of State
+CERTIFICATE OF ORGANIZATION
+WHEREAS,
+OWLVEST GLOBAL LLC
+LC014608817
+filed its Articles of Organization with this office on the 8th day of February, 2025, and that filing was
+found to conform to the Missouri Limited Liability Company Act.
+NOW, THEREFORE, I, Denny Hoskins, Secretary of State of the State of Missouri, do by virtue of the
+authority vested in me by law, do certify and declare that on the 8th day of February, 2025, the above
+entity is a Limited Liability Company, organized in this state and entitled to any rights granted to
+Limited Liability Companies.
+IN TESTIMONY WHEREOF, I hereunto set my hand and
+cause to be affixed the GREAT SEAL of the State of Missouri.
+THE
+Done at the City of Jefferson, this 8th day of February, 2025.
+
+
+--- Content from website_data.txt ---
+OWLVEST
+Vision
+What Are We Building
+Co-Founders
+RMS
+Whitepaper
+Contact
+Connect with Owlvest
+O W L V E S T
+Unlocking global startup investing through decentralized finance
+Vision
+At Owlvest, we’re building a decentralized fintech platform that unlocks global access to early-stage, revenue-generating startups. Our mission is to democratize startup investing by merging blockchain, compliance, and real-time transparency, removing traditional gatekeepers and enabling scalable, trusted, and tokenized access to high-potential opportunities across sectors and borders.
+What Are We Building
+On-Chain Insights
+Track startup performance, funding progress, and milestones with full transparency.
+Verified Access
+Invest securely in vetted startups and real-world assets through tokenized ownership.
+Smart Execution
+Automated deals, treasury visibility, and secure fund control via smart contracts.
+Tokenized Equity
+Own NFT/SFT-based equity with optional trading and built-in liquidity access.
+Community Governance
+Shape the platform’s future through decentralized, protocol-level decision-making
+Co-Founders
+Talha Aftab
+CEO & Co-founder
+Business Administration student with deep experience in legal-tech, token strategy, and product architecture. Formerly with Barings Law (UK) and Sensible International , Talha built Owlvest’s token model and platform ideation.
+Bilal Aftab
+COO & Co-founder
+MSc International Business (University of Edinburgh), a recognized trader on Binance and NYSE investor through Robinhood. Bilal oversees business development, partnerships, and fiscal expansion.
+Token Risk Mitigation Strategy (RMS)
+Lockups
+Extended lockups for team and partners
+Audits
+Smart contract audits and compliance gating
+Tracking
+Real-time treasury tracking via dashboards
+Multisig
+Multisig wallet operations with DAO pathways
+Protection
+Risk scoring and investor protection models
+Whitepaper
+Explore our whitepaper to dive into Owlvest’s technical architecture, tokenomics, and long-term vision
+Read our full Whitepaper
+Coming Soon
+The future of decentralized investment is almost here
+Contact
+Ready to be part of the future of decentralized investing? Connect with our team today.
+hello@owlvest.com
+Terms
+Privacy
+Support
+© 2025 OWLVEST. All rights reserved.
