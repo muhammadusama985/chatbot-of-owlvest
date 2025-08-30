@@ -260,7 +260,7 @@ def chat():
         if not user_query:
             return jsonify({"response": "No query provided."})
 
-        # Process the query and generate a response (this is just a placeholder)
+        # Process the query and generate a response
         context = rag_system.get_relevant_context(user_query)
         response = query_openrouter_api(user_query, context)
 
@@ -274,6 +274,7 @@ def chat():
         return jsonify({"response": response})
     except Exception as e:
         return jsonify({"response": f"Server error: {str(e)}"})
+
 
 @app.route("/status")
 def status():
