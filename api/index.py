@@ -6,15 +6,7 @@ from flask_cors import CORS
 import requests
 from api.config import *
 
-# Flask setup
-app = Flask(__name__)
-CORS(app)
-
-# Global variables
-chat_history = []
-document_chunks = []
-chunk_metadata = []
-
+# Define the UltraSimpleRAG class first
 class UltraSimpleRAG:
     def __init__(self):
         self.document_chunks = []
@@ -23,7 +15,7 @@ class UltraSimpleRAG:
     def load_documents(self):
         """Load and process OwlVest documents"""
         print(" Loading OwlVest documents...")
-        
+
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         files = [
             "owlvest_master_data.txt",
@@ -31,7 +23,7 @@ class UltraSimpleRAG:
             "clean_pic_data.txt",
             "website_data.txt"
         ]
-        
+
         all_text = ""
         for file_name in files:
             file_path = os.path.join(data_path, file_name)
@@ -42,29 +34,29 @@ class UltraSimpleRAG:
                     print(f" Loaded {file_name} ({len(content)} characters)")
             except Exception as e:
                 print(f" Error loading {file_name}: {e}")
-        
+
         return all_text
     
     def split_text_into_chunks(self, text, chunk_size=1000, overlap=200):
         """Split text into overlapping chunks"""
         print(" Splitting text into chunks...")
-        
+
         # Clean the text
         text = re.sub(r'\s+', ' ', text).strip()
-        
+
         chunks = []
         metadata = []
-        
+
         # Simple sentence-based splitting
         sentences = re.split(r'[.!?]+', text)
         current_chunk = ""
         chunk_count = 0
-        
+
         for sentence in sentences:
             sentence = sentence.strip()
             if not sentence:
                 continue
-                
+
             # If adding this sentence would exceed chunk size
             if len(current_chunk) + len(sentence) > chunk_size and current_chunk:
                 chunks.append(current_chunk.strip())
@@ -74,13 +66,13 @@ class UltraSimpleRAG:
                     "type": "owlvest_data"
                 })
                 chunk_count += 1
-                
+
                 # Start new chunk with overlap
                 overlap_text = current_chunk[-overlap:] if overlap > 0 else ""
                 current_chunk = overlap_text + " " + sentence
             else:
                 current_chunk += " " + sentence
-        
+
         # Add the last chunk
         if current_chunk.strip():
             chunks.append(current_chunk.strip())
@@ -89,7 +81,7 @@ class UltraSimpleRAG:
                 "length": len(current_chunk),
                 "type": "owlvest_data"
             })
-        
+
         print(f" Created {len(chunks)} chunks")
         return chunks, metadata
     
@@ -97,24 +89,24 @@ class UltraSimpleRAG:
         """Calculate simple text similarity using word overlap"""
         query_words = set(re.findall(r'\b\w+\b', query.lower()))
         text_words = set(re.findall(r'\b\w+\b', text.lower()))
-        
+
         if not query_words:
             return 0.0
-        
+
         # Calculate Jaccard similarity
         intersection = len(query_words.intersection(text_words))
         union = len(query_words.union(text_words))
-        
+
         if union == 0:
             return 0.0
-        
+
         return intersection / union
     
     def search_similar_chunks(self, query, k=3):
         """Search for similar chunks using simple text similarity"""
         if not self.document_chunks:
             return []
-        
+
         try:
             # Calculate similarity scores for all chunks
             chunk_scores = []
@@ -125,11 +117,11 @@ class UltraSimpleRAG:
                     'score': score,
                     'content': chunk
                 })
-            
+
             # Sort by score (highest first) and take top k
             chunk_scores.sort(key=lambda x: x['score'], reverse=True)
             top_chunks = chunk_scores[:k]
-            
+
             # Filter out chunks with very low similarity
             relevant_chunks = []
             for chunk_info in top_chunks:
@@ -139,9 +131,9 @@ class UltraSimpleRAG:
                         'score': chunk_info['score'],
                         'metadata': self.chunk_metadata[chunk_info['index']] if chunk_info['index'] < len(self.chunk_metadata) else {}
                     })
-            
+
             return relevant_chunks
-            
+
         except Exception as e:
             print(f" Error searching chunks: {e}")
             return []
@@ -149,90 +141,51 @@ class UltraSimpleRAG:
     def initialize(self):
         """Initialize the complete RAG system"""
         print(" Initializing OwlVest Ultra-Simple RAG system...")
-        
+
         # Load documents
         text = self.load_documents()
         if not text:
             return False
-        
+
         # Split into chunks
         self.document_chunks, self.chunk_metadata = self.split_text_into_chunks(text, CHUNK_SIZE, CHUNK_OVERLAP)
-        
+
         print(" Ultra-Simple RAG system initialized successfully!")
         return True
     
     def get_relevant_context(self, query, k=None):
         """Get relevant context for a query"""
         k = k or SIMILARITY_SEARCH_K
-        
+
         relevant_chunks = self.search_similar_chunks(query, k)
-        
+
         if not relevant_chunks:
             return "No relevant information found in the knowledge base."
-        
+
         # Combine relevant chunks
         context_parts = []
         for chunk in relevant_chunks:
             context_parts.append(f"[Relevance: {chunk['score']:.3f}]\n{chunk['content']}")
-        
+
         return "\n\n---\n\n".join(context_parts)
 
-# Initialize RAG system
+# Initialize RAG system here at the top of the file, before any routes or Flask app setup
 rag_system = UltraSimpleRAG()
 
-def query_openrouter_api(prompt, context=""):
-    """Query OpenRouter API with context"""
-    if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "your_openrouter_api_key_here":
-        return " Please configure your OpenRouter API key in config.py"
-    
-    # Prepare the full prompt with context
-    if context:
-        full_prompt = f"""You are OwlVest AI Assistant. Use this context from OwlVest's knowledge base to answer the user's question accurately and helpfully:
+# Flask setup
+app = Flask(__name__)
+CORS(app)
 
-Context Information:
-{context}
+# Global variables (you can keep them)
+chat_history = []
+document_chunks = []
+chunk_metadata = []
 
-User Question: {prompt}
-
-Instructions:
-- Answer based ONLY on the provided context
-- If the context doesn't contain enough information, say so clearly
-- Be professional, helpful, and accurate
-- Focus on OwlVest-specific information
-- If asked about something not in the context, politely redirect to relevant OwlVest topics
-
-Please provide a helpful answer:"""
-    else:
-        full_prompt = prompt
-    
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "model": MODEL_NAME,
-        "messages": [{"role": "user", "content": full_prompt}],
-        "temperature": TEMPERATURE,
-        "max_tokens": 1000
-    }
-    
-    try:
-        response = requests.post(url, headers=headers, json=payload, timeout=30)
-        data = response.json()
-        
-        if "choices" in data and len(data["choices"]) > 0:
-            return data["choices"][0]["message"]["content"]
-        elif "error" in data:
-            return f"API Error: {data['error'].get('message', 'Unknown error')}"
-        else:
-            return f" Unexpected response: {data}"
-    except requests.exceptions.Timeout:
-        return " Request timeout. Please try again."
-    except requests.exceptions.RequestException as e:
-        return f" Request failed: {e}"
-    except Exception as e:
-        return f" Error: {e}"
+# RAG initialization happens at import time
+try:
+    rag_system.initialize()
+except Exception as e:
+    print(f" RAG init warning: {e}")
 
 # Flask routes
 @app.route("/")
@@ -752,6 +705,7 @@ def home():
             
             if (isUser) {
                 messageDiv.innerHTML = `
+
                     <div class="message-header">
                         <div class="message-meta">
                             <span class="message-author">You</span>
@@ -851,7 +805,7 @@ def home():
                 
                 const data = await response.json();
                 const isError = data.response.startsWith(' ') || data.response.startsWith(' ');
-                
+
                 addMessage(data.response, false, isError);
                 
                 // Update status
