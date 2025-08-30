@@ -11,10 +11,10 @@ class UltraSimpleRAG:
     def __init__(self):
         self.document_chunks = []
         self.chunk_metadata = []
-        
+
     def load_documents(self):
         """Load and process OwlVest documents"""
-        print(" Loading OwlVest documents...")
+        print("Loading OwlVest documents...")
 
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         files = [
@@ -31,15 +31,15 @@ class UltraSimpleRAG:
                 with open(file_path, "r", encoding="utf-8") as file:
                     content = file.read()
                     all_text += f"\n\n--- {file_name} ---\n\n{content}"
-                    print(f" Loaded {file_name} ({len(content)} characters)")
+                    print(f"Loaded {file_name} ({len(content)} characters)")
             except Exception as e:
-                print(f" Error loading {file_name}: {e}")
+                print(f"Error loading {file_name}: {e}")
 
         return all_text
     
     def split_text_into_chunks(self, text, chunk_size=1000, overlap=200):
         """Split text into overlapping chunks"""
-        print(" Splitting text into chunks...")
+        print("Splitting text into chunks...")
 
         # Clean the text
         text = re.sub(r'\s+', ' ', text).strip()
@@ -82,7 +82,7 @@ class UltraSimpleRAG:
                 "type": "owlvest_data"
             })
 
-        print(f" Created {len(chunks)} chunks")
+        print(f"Created {len(chunks)} chunks")
         return chunks, metadata
     
     def simple_text_similarity(self, query, text):
@@ -135,12 +135,12 @@ class UltraSimpleRAG:
             return relevant_chunks
 
         except Exception as e:
-            print(f" Error searching chunks: {e}")
+            print(f"Error searching chunks: {e}")
             return []
     
     def initialize(self):
         """Initialize the complete RAG system"""
-        print(" Initializing OwlVest Ultra-Simple RAG system...")
+        print("Initializing OwlVest Ultra-Simple RAG system...")
 
         # Load documents
         text = self.load_documents()
@@ -150,7 +150,7 @@ class UltraSimpleRAG:
         # Split into chunks
         self.document_chunks, self.chunk_metadata = self.split_text_into_chunks(text, CHUNK_SIZE, CHUNK_OVERLAP)
 
-        print(" Ultra-Simple RAG system initialized successfully!")
+        print("Ultra-Simple RAG system initialized successfully!")
         return True
     
     def get_relevant_context(self, query, k=None):
@@ -187,7 +187,7 @@ chunk_metadata = []
 try:
     rag_system.initialize()
 except Exception as e:
-    print(f" RAG init warning: {e}")
+    print(f"RAG init warning: {e}")
 
 @app.after_request
 def after_request(response):
@@ -196,6 +196,61 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     return response
+
+def query_openrouter_api(prompt, context=""):
+    """Query OpenRouter API with context"""
+    if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == "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":
+        return "Please configure your OpenRouter API key in config.py"
+    
+    # Prepare the full prompt with context
+    if context:
+        full_prompt = f"""You are OwlVest AI Assistant. Use this context from OwlVest's knowledge base to answer the user's question accurately and helpfully:
+
+Context Information:
+{context}
+
+User Question: {prompt}
+
+Instructions:
+- Answer based ONLY on the provided context
+- If the context doesn't contain enough information, say so clearly
+- Be professional, helpful, and accurate
+- Focus on OwlVest-specific information
+- If asked about something not in the context, politely redirect to relevant OwlVest topics
+
+Please provide a helpful answer:"""
+    else:
+        full_prompt = prompt
+    
+    url = "https://openrouter.ai/api/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": "gpt-3.5-turbo",  # Update model name based on the OpenRouter model you're using
+        "messages": [{"role": "user", "content": full_prompt}],
+        "temperature": 0.7,
+        "max_tokens": 1000
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        data = response.json()
+        
+        if "choices" in data and len(data["choices"]) > 0:
+            return data["choices"][0]["message"]["content"]
+        elif "error" in data:
+            return f"API Error: {data['error'].get('message', 'Unknown error')}"
+        else:
+            return f"Unexpected response: {data}"
+    except requests.exceptions.Timeout:
+        return "Request timeout. Please try again."
+    except requests.exceptions.RequestException as e:
+        return f"Request failed: {e}"
+    except Exception as e:
+        return f"Error: {e}"
+
 
 # Flask routes
 @app.route("/")
@@ -726,6 +781,7 @@ def home():
                 `;
             } else {
                 messageDiv.innerHTML = `
+
                     <div class="message-header">
                         <div class="message-avatar bot-avatar">AI</div>
                         <div class="message-meta">
@@ -890,7 +946,7 @@ def status():
     return jsonify({
         "status": "running",
         "rag_ready": len(rag_system.document_chunks) > 0,
-        "api_key_configured": OPENROUTER_API_KEY != "your_openrouter_api_key_here",
+        "api_key_configured": OPENROUTER_API_KEY != "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",
         "chat_history_count": len(chat_history),
         "documents_loaded": len(rag_system.document_chunks),
         "system_type": "Ultra-Simple RAG (Text Similarity)"
